@@ -2,8 +2,8 @@
 <input type="text" #newTodo>
 <button (click)="createTodoItem(newTodo.value)">Add</button>
 <ul>
-  <li *ngFor="let todo of (todos | async).items; let i = index">
-    <span [class.done]="todo.isDone" (click)="toggleDone(i)">{{ todo.value }}</span>
-    <button (click)="removeTodoItem(i)">Remove</button>
+  <li *ngFor="let todo of (todos | async).items">
+    <span [class.done]="todo.isDone" (click)="toggleDone(todo)">{{ todo.value }}</span>
+    <button (click)="removeTodoItem(todo)">Remove</button>
   </li>
 </ul>

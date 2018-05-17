@@ -30,7 +30,7 @@ export function todoReducer(state: Todo = defaultState, action: Action) {
 
     case Actions.REMOVE_TODO:
       return {
-        items: state.items.filter((v, i) => i !== action.payload),
+        items: state.items.filter(v => v !== action.payload),
         lastUpdate: new Date()
       } as Todo;
 
@@ -39,8 +39,8 @@ export function todoReducer(state: Todo = defaultState, action: Action) {
         items: [...state.items],
         lastUpdate: new Date()
       } as Todo;
-      newState.items[action.payload].isDone = !newState.items[action.payload]
-        .isDone;
+      const i = newState.items.indexOf(action.payload);
+      newState.items[i].isDone = !newState.items[i].isDone;
       return newState;
 
     case Actions.CLEAR_TODO:
@@ -48,6 +48,7 @@ export function todoReducer(state: Todo = defaultState, action: Action) {
         items: [],
         lastUpdate: new Date()
       } as Todo;
+
     default:
       return defaultState;
   }

@@ -10,7 +10,7 @@ import * as Actions from '../actions/todo.actions';
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.css']
 })
-export class TodoListComponent implements OnInit {
+export class TodoListComponent {
   @Input() listTitle: string;
 
   todos: Observable<Todo>;
@@ -19,17 +19,15 @@ export class TodoListComponent implements OnInit {
     this.todos = store.select('todo');
   }
 
-  ngOnInit() {}
-
   createTodoItem(value: string) {
     this.store.dispatch(new Actions.CreateTodo(value));
   }
 
-  removeTodoItem(index: number) {
-    this.store.dispatch(new Actions.RemoveTodo(index));
+  removeTodoItem(item: TodoItem) {
+    this.store.dispatch(new Actions.RemoveTodo(item));
   }
 
-  toggleDone(index: number) {
-    this.store.dispatch(new Actions.ToggleTodo(index));
+  toggleDone(item: TodoItem) {
+    this.store.dispatch(new Actions.ToggleTodo(item));
   }
 }

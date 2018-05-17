@@ -12,12 +12,12 @@ export class CreateTodo implements Action {
 }
 export class RemoveTodo implements Action {
   readonly type = REMOVE_TODO;
-  constructor(public payload: number) {}
+  constructor(public payload: TodoItem) {}
 }
 
 export class ToggleTodo implements Action {
   readonly type = TOGGLE_TODO;
-  constructor(public payload: number) {}
+  constructor(public payload: TodoItem) {}
 }
 
 export class ClearTodo implements Action {
