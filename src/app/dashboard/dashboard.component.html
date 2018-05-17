@@ -1,3 +1,6 @@
-<p>
-  dashboard works!
-</p>
+<ng-container *ngIf="todos | async as t">
+  <h2>{{ title }}</h2>
+  <p>Last Update: {{ t.lastUpdate | date: 'hh:mm:ss a' }}</p>
+  <p>Total items: {{ t.items.length }}</p>
+  <button (click)="deleteAll()">Delete All</button>
+</ng-container>

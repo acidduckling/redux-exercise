@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+.panel.left {
+  width: 50%;
+  float: left;
+}
+
+.panel.right {
+  width: 50%;
+  float: left;
+}
+.panel::after {
+  content: ' ';
+  position: static;
+  display: block;
+  clear: both;
+}

@@ -1,4 +1,9 @@
+export interface Todo {
+  items: TodoItem[];
+  lastUpdate: Date;
+}
+
 export interface TodoItem {
-  id: number;
   value: string;
+  isDone: boolean;
 }
